@@ -3,11 +3,11 @@ import logging
 
 from aiogram import Bot, Dispatcher, executor, types
 
-#from config import TOKEN
+from config import TOKEN
 
 logging.basicConfig(level=logging.INFO)
 
-TOKEN = os.getenv('TOKEN')
+# TOKEN = os.getenv('TOKEN')
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
