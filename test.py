@@ -1,5 +1,4 @@
 # print('Hi')
-import getipinfo
+import public_ip as ip
 
-ip_address = '216.239.36.21'
-print(getipinfo.get_info(ip_address))
+print(ip.get())
