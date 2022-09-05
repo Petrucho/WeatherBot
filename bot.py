@@ -1,6 +1,7 @@
 import os
 import logging
 import getipinfo
+import getweather
 import public_ip as ip
 from aiogram import Bot, Dispatcher, executor, types
 from config import TOKEN
@@ -11,12 +12,11 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
-#admin_id = 123456789
 
 @dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message):
     user_name = message.from_user.full_name
-    text = f"Hello, {user_name}!\nYour coordinates is: {getipinfo.get_info(ip.get())}"
+    text = f"Hello, {user_name}!\nYour coordinates is: {getipinfo.get_info(ip.get())}\nThe weather in this location: {getweather.get_weather()}"
     logging.info(f"{user_name=} send message: {message.text}")
     print(text)
     await message.reply(text)
@@ -25,8 +25,9 @@ async def send_welcome(message: types.Message):
 async def send_echo(message: types.Message):
     user_name = message.from_user.full_name
     user_id = message.from_id
+    text = f"The weather in your location: {getweather.get_weather()}"
     logging.info(f"{user_name=} send message: {message.text}")    
-    await bot.send_message(user_id, message.text)
+    await bot.send_message(user_id, text)
     #await bot.send_message(admin_id, text)
 
 
