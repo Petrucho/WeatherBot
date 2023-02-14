@@ -1,3 +1,3 @@
-TOKEN = '5664331744:AAFXcnB172EybpnxYuTCJcJIs4T96hBavTE'
-ACCESS_TOKEN = '11f1cddf65d17f'
-KEY_WEATHER = 'fa6305e92d1e8a9629b1c3e4fde02afb'
+TOKEN = 'my_token'
+ACCESS_TOKEN = 'my_access_token'
+KEY_WEATHER = 'my_weather_token'
